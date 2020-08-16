@@ -1,19 +1,19 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
-    <id>https://https://buffonl.github.io/xjg.io/</id>
+    <id>https://buffonl.github.io/xjg.io/</id>
     <title>小酒館</title>
-    <updated>2020-08-16T17:05:37.370Z</updated>
+    <updated>2020-08-16T17:06:37.095Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
-    <link rel="alternate" href="https://https://buffonl.github.io/xjg.io/"/>
-    <link rel="self" href="https://https://buffonl.github.io/xjg.io/atom.xml"/>
+    <link rel="alternate" href="https://buffonl.github.io/xjg.io/"/>
+    <link rel="self" href="https://buffonl.github.io/xjg.io/atom.xml"/>
     <subtitle>温故而知新</subtitle>
-    <logo>https://https://buffonl.github.io/xjg.io/images/avatar.png</logo>
-    <icon>https://https://buffonl.github.io/xjg.io/favicon.ico</icon>
+    <logo>https://buffonl.github.io/xjg.io/images/avatar.png</logo>
+    <icon>https://buffonl.github.io/xjg.io/favicon.ico</icon>
     <rights>All rights reserved 2020, 小酒館</rights>
     <entry>
         <title type="html"><![CDATA[hello world]]></title>
-        <id>https://https://buffonl.github.io/xjg.io/post/hello-world/</id>
-        <link href="https://https://buffonl.github.io/xjg.io/post/hello-world/">
+        <id>https://buffonl.github.io/xjg.io/post/hello-world/</id>
+        <link href="https://buffonl.github.io/xjg.io/post/hello-world/">
         </link>
         <updated>2020-08-16T14:24:20.000Z</updated>
         <content type="html"><![CDATA[<p>油腻老萌新 成功入坑</p>
@@ -21,8 +21,8 @@
     </entry>
     <entry>
         <title type="html"><![CDATA[Hello Gridea]]></title>
-        <id>https://https://buffonl.github.io/xjg.io/post/hello-gridea/</id>
-        <link href="https://https://buffonl.github.io/xjg.io/post/hello-gridea/">
+        <id>https://buffonl.github.io/xjg.io/post/hello-gridea/</id>
+        <link href="https://buffonl.github.io/xjg.io/post/hello-gridea/">
         </link>
         <updated>2018-12-11T16:00:00.000Z</updated>
         <summary type="html"><![CDATA[<p>👏  欢迎使用 <strong>Gridea</strong> ！<br>
