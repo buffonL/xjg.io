@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://buffonl.github.io/xjg.io/</id>
     <title>小酒館</title>
-    <updated>2020-08-17T08:51:52.936Z</updated>
+    <updated>2020-08-17T08:58:10.225Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://buffonl.github.io/xjg.io/"/>
     <link rel="self" href="https://buffonl.github.io/xjg.io/atom.xml"/>
@@ -11,19 +11,15 @@
     <icon>https://buffonl.github.io/xjg.io/favicon.ico</icon>
     <rights>All rights reserved 2020, 小酒館</rights>
     <entry>
-        <title type="html"><![CDATA[数据预处理（一）]]></title>
-        <id>https://buffonl.github.io/xjg.io/post/xlMOD_1/</id>
-        <link href="https://buffonl.github.io/xjg.io/post/xlMOD_1/">
+        <title type="html"><![CDATA[數據预处理（一）]]></title>
+        <id>https://buffonl.github.io/xjg.io/post/xl_mod_1/</id>
+        <link href="https://buffonl.github.io/xjg.io/post/xl_mod_1/">
         </link>
-        <updated>2020-08-17T08:02:51.000Z</updated>
-        <content type="html"><![CDATA[<h1 id="题外话mmp-头疼的一b要死不活的">题外话：MMP 头疼的一B，要死不活的。</h1>
-<p>。。。  主机显示器发紫。。。 笔记本键盘也他妈罢工了。 我草.....<br>
-——————————————————————————————————————————————————————</p>
-<h1 id="本次目标">本次目标：</h1>
-<p>本次目标主要是复现角钢塔，初步目标是读取MOD格式，获取其塔身、塔腿组合。获取内部点位和连接关系，<br>
-————————————————</p>
-<h1 id="正文">正文：</h1>
-<p>*<code>all_link=dict() filepath=“”</code>with open(filepath,&quot;r&quot;,encoding=&quot;utf-8&quot;) as f:<br>
+        <updated>2020-08-17T08:52:48.000Z</updated>
+        <content type="html"><![CDATA[<pre><code>    MOD数据处理
+</code></pre>
+<p>*all_link=dict()</p>
+<p>with open(filepath,&quot;r&quot;,encoding=&quot;utf-8&quot;) as f:<br>
 Title=[x.rstrip().lstrip() for x in f.readlines() ]<br>
 Title_NUM=int(Title[0].split(&quot;,&quot;)[1])<br>
 MOD=dict()<br>
@@ -33,8 +29,8 @@ infor=dict()<br>
 infor[&quot;高度&quot;]=infors[1]<br>
 infor[&quot;bady&quot;] = infors[2]<br>
 infor[&quot;leg&quot;] = infors[3].strip()<br>
-MOD[&quot;%s&quot;%(&quot;形式%a&quot;%(i+1))]=infor</p>
-<p>def get_point_by_key(Title=Title,key=&quot;&quot;):<br>
+MOD[&quot;%s&quot;%(&quot;形式%a&quot;%(i+1))]=infor<br>
+def get_point_by_key(Title=Title,key=&quot;&quot;):<br>
 startnum=Title.index(&quot;%s&quot;%key.title())<br>
 OUT=dict()<br>
 while True:<br>
@@ -71,7 +67,7 @@ start=all_link[link][&quot;start&quot;]<br>
 end=all_link[link][&quot;end&quot;]<br>
 section=all_link[link][&quot;section&quot;]<br>
 section = all_link[link][&quot;material&quot;]<br>
-if start in need_ and end in need_:`<br>
+if start in need_ and end in need_:<br>
 x1 = float(all_link[link][&quot;V_X&quot;][0])<br>
 y1 = float(all_link[link][&quot;V_X&quot;][1])<br>
 z1 = float(all_link[link][&quot;V_X&quot;][2])</p>
@@ -82,14 +78,8 @@ z1 = float(all_link[link][&quot;V_X&quot;][2])</p>
     x0=y1*z2-y2*z1
     y0=-1*(x1*z2-x2*z1)
     z0=x1*y2-x2*y1
-    print(x0,y0,z0)*`
+    print(x0,y0,z0)***
 </code></pre>
-<p>当前问题：</p>
-<p>1.心情烦躁，无心继续<br>
-2.以上内容为python3.8使用，Dynamo使用Ironpython.各种编码问题，调试不便。<br>
-3.根据两个共面向量求法向量，方法都忘光光了<br>
-4.型材截面生成删除，后期需要单独进行<br>
-5.逻辑与优化。</p>
 ]]></content>
     </entry>
     <entry>
