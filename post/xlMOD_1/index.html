@@ -7,7 +7,7 @@
 <meta name="description" content="夜间闲谈">
 
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
-<link rel="shortcut icon" href="https://buffonl.github.io/xjg.io//favicon.ico?v=1597653023907">
+<link rel="shortcut icon" href="https://buffonl.github.io/xjg.io//favicon.ico?v=1597653302464">
 
 <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
 <link rel="stylesheet" href="https://unpkg.com/papercss@1.6.1/dist/paper.min.css" />
@@ -95,9 +95,7 @@
 <p>本次目标主要是复现角钢塔，初步目标是读取MOD格式，获取其塔身、塔腿组合。获取内部点位和连接关系，<br>
 ————————————————</p>
 <h1 id="正文">正文：</h1>
-<p>*`all_link=dict()<br>
-filepath=“”<br>
-with open(filepath,&quot;r&quot;,encoding=&quot;utf-8&quot;) as f:<br>
+<p>*<code>all_link=dict() filepath=“”</code>with open(filepath,&quot;r&quot;,encoding=&quot;utf-8&quot;) as f:<br>
 Title=[x.rstrip().lstrip() for x in f.readlines() ]<br>
 Title_NUM=int(Title[0].split(&quot;,&quot;)[1])<br>
 MOD=dict()<br>
@@ -156,7 +154,7 @@ z1 = float(all_link[link][&quot;V_X&quot;][2])</p>
     x0=y1*z2-y2*z1
     y0=-1*(x1*z2-x2*z1)
     z0=x1*y2-x2*y1
-    print(x0,y0,z0)*
+    print(x0,y0,z0)*`
 </code></pre>
 <p>当前问题：</p>
 <p>1.心情烦躁，无心继续<br>
@@ -187,7 +185,7 @@ z1 = float(all_link[link][&quot;V_X&quot;][2])</p>
 
       <div class="sm-12 md-4 col sidebar">
   <div class="paper info-container">
-    <img src="https://buffonl.github.io/xjg.io//images/avatar.png?v=1597653023907" class="no-responsive avatar">
+    <img src="https://buffonl.github.io/xjg.io//images/avatar.png?v=1597653302464" class="no-responsive avatar">
     <div class="text-muted">夜间闲谈</div>
     <div class="social-container">
       
@@ -237,7 +235,7 @@ z1 = float(all_link[link][&quot;V_X&quot;][2])</p>
     </div>
     <div class="row">
       
-        <a href="https://buffonl.github.io/xjg.io/tag/0x9GbX9AJ/" class="badge warning">
+        <a href="https://buffonl.github.io/xjg.io/tag/0x9GbX9AJ/" class="badge secondary">
           Gridea
         </a>
       
