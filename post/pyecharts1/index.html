@@ -1,20 +1,13 @@
-<!DOCTYPE html>
 <html>
   <head>
-    <meta charset="utf-8" >
-
+    <meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Pyecharts 基础设置查询 | 小酒館</title>
-
-<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
-
-<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
-<link rel="shortcut icon" href="https://buffonl.github.io/xjg.io//favicon.ico?v=1597599378696">
+<link rel="shortcut icon" href="https://buffonl.github.io/xjg.io//favicon.ico?v=1597627104198">
+<link href="https://cdn.jsdelivr.net/npm/remixicon@2.3.0/fonts/remixicon.css" rel="stylesheet">
 <link rel="stylesheet" href="https://buffonl.github.io/xjg.io//styles/main.css">
-
-
-
-<link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
-<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+<link rel="alternate" type="application/atom+xml" title="Pyecharts 基础设置查询 | 小酒館 - Atom Feed" href="https://buffonl.github.io/xjg.io//atom.xml">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Droid+Serif:400,700">
 
 
 
@@ -25,81 +18,82 @@ title -&gt; str
 subtitle -&gt; str
 副标题文本，支持 \n 换行，默认为 &q..." />
     <meta name="keywords" content="" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/katex.min.css">
+    <script src="https://cdn.bootcss.com/highlight.js/9.12.0/highlight.min.js"></script>
   </head>
   <body>
-    <div id="app" class="main">
-
-      <div class="sidebar" :class="{ 'full-height': menuVisible }">
-  <div class="top-container" data-aos="fade-right">
-    <div class="top-header-container">
-      <a class="site-title-container" href="https://buffonl.github.io/xjg.io/">
-        <img src="https://buffonl.github.io/xjg.io//images/avatar.png?v=1597599378696" class="site-logo">
-        <h1 class="site-title">小酒館</h1>
-      </a>
-      <div class="menu-btn" @click="menuVisible = !menuVisible">
-        <div class="line"></div>
-      </div>
-    </div>
-    <div>
+    <div class="main">
+      <div class="main-content">
+        <div class="site-header">
+  <a href="https://buffonl.github.io/xjg.io/">
+  <img class="avatar" src="https://buffonl.github.io/xjg.io//images/avatar.png?v=1597627104198" alt="">
+  </a>
+  <h1 class="site-title">
+    小酒館
+  </h1>
+  <p class="site-description">
+    夜间闲谈
+  </p>
+  <div class="menu-container">
+    
       
-        
-          <a href="buffonl.github.io/xjg.io/" class="site-nav">
-            首页
-          </a>
-        
+        <a href="buffonl.github.io/xjg.io/" class="menu">
+          首页
+        </a>
       
-        
-          <a href="/archives" class="site-nav">
-            归档
-          </a>
-        
+    
       
-        
-          <a href="/tags" class="site-nav">
-            标签
-          </a>
-        
+        <a href="/archives" class="menu">
+          归档
+        </a>
       
-        
-          <a href="/post/about" class="site-nav">
-            关于
-          </a>
-        
+    
       
-    </div>
+        <a href="/tags" class="menu">
+          标签
+        </a>
+      
+    
+      
+        <a href="/post/about" class="menu">
+          关于
+        </a>
+      
+    
   </div>
-  <div class="bottom-container" data-aos="flip-up" data-aos-offset="0">
-    <div class="social-container">
+  <div class="social-container">
+    
       
-        
+    
       
-        
+    
       
-        
+    
       
-        
+    
       
-        
-      
-    </div>
-    <div class="site-description">
-      温故而知新
-    </div>
-    <div class="site-footer">
-      757009557@qq.com | <a class="rss" href="https://buffonl.github.io/xjg.io//atom.xml" target="_blank">RSS</a>
-    </div>
+    
   </div>
 </div>
 
-
-      <div class="main-container">
-        <div class="content-container" data-aos="fade-up">
-          <div class="post-detail">
-            <h2 class="post-title">Pyecharts 基础设置查询</h2>
-            <div class="post-date">2020-08-17</div>
+        <div class="post-detail">
+          <article class="post">
+            <h2 class="post-title">
+              Pyecharts 基础设置查询
+            </h2>
+            <div class="post-info">
+              <span>
+                2020-08-17
+              </span>
+              <span>
+                22 min read
+              </span>
+              
+            </div>
             
-            <div class="post-content" v-pre>
-              <p>图形初始化<br>
+            <div class="post-content-wrapper">
+              <div class="post-content">
+                <p>图形初始化<br>
 图表类初始化所接受的参数（所有类型的图表都一样）。</p>
 <p>title -&gt; str<br>
 主标题文本，支持 \n 换行，默认为 &quot;&quot;<br>
@@ -493,45 +487,76 @@ is_more_utils -&gt; bool<br>
 官方文档链接：http://pyecharts.org/#/zh-cn/charts_configure</p>
 <p>转载于：https://blog.csdn.net/miner_zhu/article/details/81949004</p>
 
-            </div>
-            
-            
-              <div class="next-post">
-                <div class="next">下一篇</div>
-                <a href="https://buffonl.github.io/xjg.io/post/hello-world/">
-                  <h3 class="post-title">
-                    hello world
-                  </h3>
-                </a>
               </div>
-            
-
-            
-
-          </div>
-
+              <div class="toc-container">
+                
+              </div>
+            </div>
+          </article>
         </div>
+
+        
+          <div class="next-post">
+            <div class="next">下一篇</div>
+            <a href="https://buffonl.github.io/xjg.io/post/hello-world/">
+              <h3 class="post-title">
+                hello world
+              </h3>
+            </a>
+          </div>
+        
+
+        
+
+        <div class="site-footer">
+  757009557@qq.com
+  <a class="rss" href="https://buffonl.github.io/xjg.io//atom.xml" target="_blank">
+    <i class="ri-rss-line"></i> RSS
+  </a>
+</div>
+
       </div>
     </div>
 
-    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
-<script type="application/javascript">
+    <script>
+      hljs.initHighlightingOnLoad()
 
-AOS.init();
+      let mainNavLinks = document.querySelectorAll(".markdownIt-TOC a");
 
-var app = new Vue({
-  el: '#app',
-  data: {
-    menuVisible: false,
-  },
-})
+      // This should probably be throttled.
+      // Especially because it triggers during smooth scrolling.
+      // https://lodash.com/docs/4.17.10#throttle
+      // You could do like...
+      // window.addEventListener("scroll", () => {
+      //    _.throttle(doThatStuff, 100);
+      // });
+      // Only not doing it here to keep this Pen dependency-free.
 
-</script>
+      window.addEventListener("scroll", event => {
+        let fromTop = window.scrollY;
 
+        mainNavLinks.forEach((link, index) => {
+          let section = document.getElementById(decodeURI(link.hash).substring(1));
+          let nextSection = null
+          if (mainNavLinks[index + 1]) {
+            nextSection = document.getElementById(decodeURI(mainNavLinks[index + 1].hash).substring(1));
+          }
+          if (section.offsetTop <= fromTop) {
+            if (nextSection) {
+              if (nextSection.offsetTop > fromTop) {
+                link.classList.add("current");
+              } else {
+                link.classList.remove("current");    
+              }
+            } else {
+              link.classList.add("current");
+            }
+          } else {
+            link.classList.remove("current");
+          }
+        });
+      });
 
-
-
-
-
+    </script>
   </body>
 </html>
