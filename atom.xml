@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://buffonl.github.io/xjg.io/</id>
     <title>小酒館</title>
-    <updated>2020-08-17T08:59:18.464Z</updated>
+    <updated>2020-08-17T09:11:04.506Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://buffonl.github.io/xjg.io/"/>
     <link rel="self" href="https://buffonl.github.io/xjg.io/atom.xml"/>
@@ -10,78 +10,6 @@
     <logo>https://buffonl.github.io/xjg.io/images/avatar.png</logo>
     <icon>https://buffonl.github.io/xjg.io/favicon.ico</icon>
     <rights>All rights reserved 2020, 小酒館</rights>
-    <entry>
-        <title type="html"><![CDATA[模型数据处理（一）]]></title>
-        <id>https://buffonl.github.io/xjg.io/post/xl_mod_1/</id>
-        <link href="https://buffonl.github.io/xjg.io/post/xl_mod_1/">
-        </link>
-        <updated>2020-08-17T08:52:48.000Z</updated>
-        <content type="html"><![CDATA[<pre><code>    MOD数据处理
-</code></pre>
-<p>*all_link=dict()</p>
-<p>with open(filepath,&quot;r&quot;,encoding=&quot;utf-8&quot;) as f:<br>
-Title=[x.rstrip().lstrip() for x in f.readlines() ]<br>
-Title_NUM=int(Title[0].split(&quot;,&quot;)[1])<br>
-MOD=dict()<br>
-for i in range(Title_NUM):<br>
-infors=Title[i+1].split(&quot;,&quot;)<br>
-infor=dict()<br>
-infor[&quot;高度&quot;]=infors[1]<br>
-infor[&quot;bady&quot;] = infors[2]<br>
-infor[&quot;leg&quot;] = infors[3].strip()<br>
-MOD[&quot;%s&quot;%(&quot;形式%a&quot;%(i+1))]=infor<br>
-def get_point_by_key(Title=Title,key=&quot;&quot;):<br>
-startnum=Title.index(&quot;%s&quot;%key.title())<br>
-OUT=dict()<br>
-while True:<br>
-rrdata=Title[startnum+2].split(&quot;,&quot;)<br>
-if rrdata[0] in [&quot;P&quot;]:<br>
-infor=dict()<br>
-infor[&quot;X&quot;]=rrdata[2]<br>
-infor[&quot;Y&quot;]=rrdata[3]<br>
-infor[&quot;Z&quot;]=rrdata[4]<br>
-OUT[&quot;P%s&quot;%rrdata[1]]=infor<br>
-startnum+=1<br>
-else:<br>
-break<br>
-return OUT<br>
-def get_line():<br>
-num=0<br>
-for data in Title:<br>
-link = dict()<br>
-data=data.split(&quot;,&quot;)<br>
-if &quot;R&quot; in data[0]:<br>
-num += 1<br>
-link[&quot;start&quot;]=&quot;P%s&quot;%data[1]<br>
-link[&quot;end&quot;] = &quot;P%s&quot;%data[2]<br>
-link[&quot;section&quot;] = data[3]<br>
-link[&quot;material&quot;] = data[4]<br>
-link[&quot;V_X&quot;] = [data[5],data[6],data[7]]<br>
-link[&quot;V_Y&quot;] = [data[8],data[9],data[10]]<br>
-all_link[&quot;link_%a&quot;%num]=link</p>
-<p>get_line()<br>
-need1=get_point_by_key(key=&quot;body1&quot;)<br>
-need_=list(need1)<br>
-for link in all_link:<br>
-start=all_link[link][&quot;start&quot;]<br>
-end=all_link[link][&quot;end&quot;]<br>
-section=all_link[link][&quot;section&quot;]<br>
-section = all_link[link][&quot;material&quot;]<br>
-if start in need_ and end in need_:<br>
-x1 = float(all_link[link][&quot;V_X&quot;][0])<br>
-y1 = float(all_link[link][&quot;V_X&quot;][1])<br>
-z1 = float(all_link[link][&quot;V_X&quot;][2])</p>
-<pre><code>    x2 = float(all_link[link][&quot;V_Y&quot;][0])
-    y2 = float(all_link[link][&quot;V_Y&quot;][1])
-    z2 = float(all_link[link][&quot;V_Y&quot;][2])
-
-    x0=y1*z2-y2*z1
-    y0=-1*(x1*z2-x2*z1)
-    z0=x1*y2-x2*y1
-    print(x0,y0,z0)***
-</code></pre>
-]]></content>
-    </entry>
     <entry>
         <title type="html"><![CDATA[Pyecharts 基础设置查询]]></title>
         <id>https://buffonl.github.io/xjg.io/post/pyecharts1/</id>
