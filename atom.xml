@@ -1,15 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://buffonl.github.io/xjg.io/</id>
-    <title>小酒館</title>
-    <updated>2020-08-18T10:13:14.432Z</updated>
+    <title>老酒館</title>
+    <updated>2020-08-19T03:06:40.797Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://buffonl.github.io/xjg.io/"/>
     <link rel="self" href="https://buffonl.github.io/xjg.io/atom.xml"/>
-    <subtitle>夜间闲谈</subtitle>
+    <subtitle>夜半点灯，静候佳客</subtitle>
     <logo>https://buffonl.github.io/xjg.io/images/avatar.png</logo>
     <icon>https://buffonl.github.io/xjg.io/favicon.ico</icon>
-    <rights>All rights reserved 2020, 小酒館</rights>
+    <rights>All rights reserved 2020, 老酒館</rights>
     <entry>
         <title type="html"><![CDATA[Pyecharts 基础设置查询]]></title>
         <id>https://buffonl.github.io/xjg.io/post/pyecharts1/</id>
