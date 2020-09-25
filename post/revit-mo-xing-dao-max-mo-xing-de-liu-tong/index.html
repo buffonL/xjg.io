@@ -4,7 +4,7 @@
 <meta name="description" content=""/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
 
-<title>模型数据处理（一） | 老酒館</title>
+<title>Revit 模型到Max模型的流通 | 老酒館</title>
 
 <link rel="shortcut icon" href="https://buffonl.github.io/xjg.io//favicon.ico?v=1601022705124">
 
@@ -89,88 +89,84 @@
         <div class="post-detail gt-bg-theme-color-second">
             <article class="gt-post-content">
                 <h2 class="post-title">
-                    模型数据处理（一）
+                    Revit 模型到Max模型的流通
                 </h2>
                 <div class="post-info">
                     <time class="post-time gt-c-content-color-first">
-                        · 2020-08-17 ·
+                        · 2020-09-25 ·
                     </time>
-                    
-                        <a href="https://buffonl.github.io/xjg.io/tag/613x7Tust/" class="post-tags">
-                            # revit
-                        </a>
                     
                 </div>
                 <div class="post-content">
-                    <pre><code>    MOD数据处理
-</code></pre>
-<p>*all_link=dict()</p>
-<p>with open(filepath,&quot;r&quot;,encoding=&quot;utf-8&quot;) as f:<br>
-Title=[x.rstrip().lstrip() for x in f.readlines() ]<br>
-Title_NUM=int(Title[0].split(&quot;,&quot;)[1])<br>
-MOD=dict()<br>
-for i in range(Title_NUM):<br>
-infors=Title[i+1].split(&quot;,&quot;)<br>
-infor=dict()<br>
-infor[&quot;高度&quot;]=infors[1]<br>
-infor[&quot;bady&quot;] = infors[2]<br>
-infor[&quot;leg&quot;] = infors[3].strip()<br>
-MOD[&quot;%s&quot;%(&quot;形式%a&quot;%(i+1))]=infor<br>
-def get_point_by_key(Title=Title,key=&quot;&quot;):<br>
-startnum=Title.index(&quot;%s&quot;%key.title())<br>
-OUT=dict()<br>
-while True:<br>
-rrdata=Title[startnum+2].split(&quot;,&quot;)<br>
-if rrdata[0] in [&quot;P&quot;]:<br>
-infor=dict()<br>
-infor[&quot;X&quot;]=rrdata[2]<br>
-infor[&quot;Y&quot;]=rrdata[3]<br>
-infor[&quot;Z&quot;]=rrdata[4]<br>
-OUT[&quot;P%s&quot;%rrdata[1]]=infor<br>
-startnum+=1<br>
-else:<br>
-break<br>
-return OUT<br>
-def get_line():<br>
-num=0<br>
-for data in Title:<br>
-link = dict()<br>
-data=data.split(&quot;,&quot;)<br>
-if &quot;R&quot; in data[0]:<br>
-num += 1<br>
-link[&quot;start&quot;]=&quot;P%s&quot;%data[1]<br>
-link[&quot;end&quot;] = &quot;P%s&quot;%data[2]<br>
-link[&quot;section&quot;] = data[3]<br>
-link[&quot;material&quot;] = data[4]<br>
-link[&quot;V_X&quot;] = [data[5],data[6],data[7]]<br>
-link[&quot;V_Y&quot;] = [data[8],data[9],data[10]]<br>
-all_link[&quot;link_%a&quot;%num]=link</p>
-<p>get_line()<br>
-need1=get_point_by_key(key=&quot;body1&quot;)<br>
-need_=list(need1)<br>
-for link in all_link:<br>
-start=all_link[link][&quot;start&quot;]<br>
-end=all_link[link][&quot;end&quot;]<br>
-section=all_link[link][&quot;section&quot;]<br>
-section = all_link[link][&quot;material&quot;]<br>
-if start in need_ and end in need_:<br>
-x1 = float(all_link[link][&quot;V_X&quot;][0])<br>
-y1 = float(all_link[link][&quot;V_X&quot;][1])<br>
-z1 = float(all_link[link][&quot;V_X&quot;][2])</p>
-<pre><code>    x2 = float(all_link[link][&quot;V_Y&quot;][0])
-    y2 = float(all_link[link][&quot;V_Y&quot;][1])
-    z2 = float(all_link[link][&quot;V_Y&quot;][2])
+                    <pre><code>因为某些需要，需要吧RVT模型经3D处理导入U3D.需要吧属性写入名称，过程中模型量过大。相同设备无法复用。
 
-    x0=y1*z2-y2*z1
-    y0=-1*(x1*z2-x2*z1)
-    z0=x1*y2-x2*y1
-    print(x0,y0,z0)***
+原始流程：
+    1.RVT模型按照名称建族
+            各项属性写入名称
+    2.RVT模型导入MAX
+
+
+调整后
+    1.RVT模型正常建模
+            各项参数 在EXCEL表中完成与模型的对应。记录其ID
+    2.RVT模型导入MAX
+    3.MAX模型更改名称
+
+    代码部分：
+    1.Revit模型模型导出到CSV. 如果参写在模型上最好。
+    该部分使用dynamo完成
+
+
+            t3=All Elements In Active View
+            element1 = Element.ElementType(t3);
+            parameter1 = Element.Parameters(element1);
+            t4 = Element.GetParameterValueByName(element1, &quot;族名称&quot;);
+            t5 = Element.GetParameterValueByName(element1, &quot;类型名称&quot;);
+            t6 = Element.Id(t3);
+            A = t4;
+            B = t5;
+            C = t6;
+            OUT = (((((A + &quot; &quot;) + B) + &quot; &quot;) + &quot;[&quot;) + C) + &quot;]&quot;;
+            t7 = List.SortByKey(OUT, OUT);
+            t8 = Dictionary.ValueAtKey(t7, &quot;sorted list&quot;);
 </code></pre>
+<p>备注 获取模型属性方法 与上述类似。</p>
+<p>2.CSV文件转换成Json.<br>
+该部分意向使用python 完成，暂不考虑<br>
+3.MAX模型该名称（针对当前模型，因为模型在不同模型中可能有ID重复，因此建议在单位件环境完成修改）<br>
+该部分借鉴MAXS SCRIPT语言</p>
+<p>JsonDllPath = @&quot;C:\Users\Administrator\AppData\Local\Temp\ral4goku.rkv\resources\app\ServiceHub\Services\Microsoft.VisualStudio.Setup.Service\Newtonsoft.Json.dll&quot;<br>
+JsonFilePath = @&quot;C:\Users\Administrator\PycharmProjects\untitled2\venv\set.json&quot;</p>
+<p>JsonString = &quot;&quot;<br>
+JsonFile = openFile JsonFilePath<br>
+while not eof JsonFile do<br>
+(<br>
+JsonString += readchar JsonFile<br>
+)<br>
+close JsonFile</p>
+<p>JsonFile = openFile JsonFilePath<br>
+(dotnetClass &quot;System.Reflection.assembly&quot;).Load ((dotnetClass &quot;System.IO.File&quot;).ReadAllBytes(JsonDllPath))<br>
+-- 解析Json格式的字符<br>
+LinqJsonObj = (dotNetObject &quot;Newtonsoft.Json.Linq.JObject&quot;).parse JsonString<br>
+for dev in geometry do<br>
+(devname=dev.name<br>
+print dev.name<br>
+OutValue = (LinqJsonObj.GetValue devname).Value<br>
+NEWname=dev.name+OutValue<br>
+dev.name=NEWname<br>
+)</p>
 
                 </div>
             </article>
         </div>
 
+        
+            <div class="next-post">
+                <div class="next gt-c-content-color-first">下一篇</div>
+                <a href="https://buffonl.github.io/xjg.io/post/pyecharts1/" class="post-title gt-a-link">
+                    Pyecharts 基础设置查询
+                </a>
+            </div>
         
 
         

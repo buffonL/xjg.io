@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://buffonl.github.io/xjg.io/</id>
     <title>老酒館</title>
-    <updated>2020-08-19T03:19:41.875Z</updated>
+    <updated>2020-09-25T08:32:16.439Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://buffonl.github.io/xjg.io/"/>
     <link rel="self" href="https://buffonl.github.io/xjg.io/atom.xml"/>
@@ -10,6 +10,71 @@
     <logo>https://buffonl.github.io/xjg.io/images/avatar.png</logo>
     <icon>https://buffonl.github.io/xjg.io/favicon.ico</icon>
     <rights>All rights reserved 2020, 老酒館</rights>
+    <entry>
+        <title type="html"><![CDATA[Revit 模型到Max模型的流通]]></title>
+        <id>https://buffonl.github.io/xjg.io/post/revit-mo-xing-dao-max-mo-xing-de-liu-tong/</id>
+        <link href="https://buffonl.github.io/xjg.io/post/revit-mo-xing-dao-max-mo-xing-de-liu-tong/">
+        </link>
+        <updated>2020-09-25T08:21:34.000Z</updated>
+        <content type="html"><![CDATA[<pre><code>因为某些需要，需要吧RVT模型经3D处理导入U3D.需要吧属性写入名称，过程中模型量过大。相同设备无法复用。
+
+原始流程：
+    1.RVT模型按照名称建族
+            各项属性写入名称
+    2.RVT模型导入MAX
+
+
+调整后
+    1.RVT模型正常建模
+            各项参数 在EXCEL表中完成与模型的对应。记录其ID
+    2.RVT模型导入MAX
+    3.MAX模型更改名称
+
+    代码部分：
+    1.Revit模型模型导出到CSV. 如果参写在模型上最好。
+    该部分使用dynamo完成
+
+
+            t3=All Elements In Active View
+            element1 = Element.ElementType(t3);
+            parameter1 = Element.Parameters(element1);
+            t4 = Element.GetParameterValueByName(element1, &quot;族名称&quot;);
+            t5 = Element.GetParameterValueByName(element1, &quot;类型名称&quot;);
+            t6 = Element.Id(t3);
+            A = t4;
+            B = t5;
+            C = t6;
+            OUT = (((((A + &quot; &quot;) + B) + &quot; &quot;) + &quot;[&quot;) + C) + &quot;]&quot;;
+            t7 = List.SortByKey(OUT, OUT);
+            t8 = Dictionary.ValueAtKey(t7, &quot;sorted list&quot;);
+</code></pre>
+<p>备注 获取模型属性方法 与上述类似。</p>
+<p>2.CSV文件转换成Json.<br>
+该部分意向使用python 完成，暂不考虑<br>
+3.MAX模型该名称（针对当前模型，因为模型在不同模型中可能有ID重复，因此建议在单位件环境完成修改）<br>
+该部分借鉴MAXS SCRIPT语言</p>
+<p>JsonDllPath = @&quot;C:\Users\Administrator\AppData\Local\Temp\ral4goku.rkv\resources\app\ServiceHub\Services\Microsoft.VisualStudio.Setup.Service\Newtonsoft.Json.dll&quot;<br>
+JsonFilePath = @&quot;C:\Users\Administrator\PycharmProjects\untitled2\venv\set.json&quot;</p>
+<p>JsonString = &quot;&quot;<br>
+JsonFile = openFile JsonFilePath<br>
+while not eof JsonFile do<br>
+(<br>
+JsonString += readchar JsonFile<br>
+)<br>
+close JsonFile</p>
+<p>JsonFile = openFile JsonFilePath<br>
+(dotnetClass &quot;System.Reflection.assembly&quot;).Load ((dotnetClass &quot;System.IO.File&quot;).ReadAllBytes(JsonDllPath))<br>
+-- 解析Json格式的字符<br>
+LinqJsonObj = (dotNetObject &quot;Newtonsoft.Json.Linq.JObject&quot;).parse JsonString<br>
+for dev in geometry do<br>
+(devname=dev.name<br>
+print dev.name<br>
+OutValue = (LinqJsonObj.GetValue devname).Value<br>
+NEWname=dev.name+OutValue<br>
+dev.name=NEWname<br>
+)</p>
+]]></content>
+    </entry>
     <entry>
         <title type="html"><![CDATA[Pyecharts 基础设置查询]]></title>
         <id>https://buffonl.github.io/xjg.io/post/pyecharts1/</id>
